@@ -1,0 +1,11 @@
+services:
+  database-layer:
+    image: ${DOCKER_REGISTRY-}database-layer
+    build:
+      context: .
+      dockerfile: DbWorker/Api/Dockerfile
+  api-layer:
+    image: ${DOCKER_REGISTRY-}api-layer
+    build:
+      context: .
+      dockerfile: RestApi/Api/Dockerfile
