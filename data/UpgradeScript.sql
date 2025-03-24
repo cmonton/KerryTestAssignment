@@ -1,0 +1,2 @@
+﻿ALTER TABLE Addresses ADD Email NVARCHAR(250) DEFAULT ('-') NOT NULL;
+ALTER TABLE Addresses ADD PhoneNumber NVARCHAR(15) NULL;

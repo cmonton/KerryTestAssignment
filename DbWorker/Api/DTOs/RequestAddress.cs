@@ -21,4 +21,10 @@ public class RequestAddress
 
     [JsonPropertyName("zipcode")]
     public string? ZipCode { get; set; }
+
+    [JsonPropertyName("email")]
+    public required string Email { get; set; }
+
+    [JsonPropertyName("phonenumber")]
+    public string? PhoneNumber { get; set; }
 }

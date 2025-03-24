@@ -9,5 +9,7 @@ namespace Api.Libraries.AddressLibrary.Models
         public required string Country { get; set; }
         public string? State { get; set; }
         public string? ZipCode { get; set; }
+        public required string Email { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

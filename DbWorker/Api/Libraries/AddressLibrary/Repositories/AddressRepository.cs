@@ -40,9 +40,9 @@ public class AddressRepository(IDbConnectionFactory db) : IAddressRepository
         await using var connection = db.CreateConnection();
         const string sql = """
             INSERT INTO Addresses 
-                (Street, City, State, ZipCode, Name, Country ) 
+                (Street, City, State, ZipCode, Name, Country, Email, PhoneNumber) 
             VALUES 
-                (@Street, @City, @State, @ZipCode ,@Name,@Country);
+                (@Street, @City, @State, @ZipCode ,@Name, @Country, @Email, @PhoneNumber);
             SELECT last_insert_rowid();
             """;
         return await connection.ExecuteScalarAsync<int>(sql, address);
@@ -58,7 +58,9 @@ public class AddressRepository(IDbConnectionFactory db) : IAddressRepository
                 State = @State, 
                 ZipCode = @ZipCode, 
                 Name=@Name,
-                Country=@Country
+                Country=@Country,
+                Email=@Email,
+                PhoneNumber=@PhoneNumber
             WHERE 
                 Id = @Id;
             """;
@@ -74,6 +76,8 @@ public class AddressRepository(IDbConnectionFactory db) : IAddressRepository
                 address.ZipCode,
                 address.Name,
                 address.Country,
+                address.Email,
+                address.PhoneNumber
             }
         );
     }

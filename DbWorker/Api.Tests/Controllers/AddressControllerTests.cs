@@ -30,6 +30,7 @@ namespace Api.Tests.Controllers
                     Name = "Test1",
                     City = "City1",
                     Country = "Country1",
+                    Email = "test@test.com"
                 },
                 new()
                 {
@@ -37,6 +38,7 @@ namespace Api.Tests.Controllers
                     Name = "Test2",
                     City = "City2",
                     Country = "Country2",
+                    Email = "test@test.com"
                 },
             };
             _mockRepo.Setup(repo => repo.GetAllAddressesAsync()).ReturnsAsync(addresses);
@@ -60,6 +62,7 @@ namespace Api.Tests.Controllers
                 Name = "Test",
                 City = "City",
                 Country = "Country",
+                Email = "test@test.com"
             };
             _mockRepo.Setup(repo => repo.GetAddressByIdAsync(1)).ReturnsAsync(address);
 
@@ -96,6 +99,7 @@ namespace Api.Tests.Controllers
                 Name = "Test",
                 City = "City",
                 Country = "Country",
+                Email = "test@test.com"
             };
             _mockRepo.Setup(repo => repo.AddAddressAsync(requestAddress)).ReturnsAsync(1);
 
@@ -116,6 +120,7 @@ namespace Api.Tests.Controllers
                 Name = "Test",
                 City = "City",
                 Country = "Country",
+                Email = "test@test.com"
             };
 
             // Act
@@ -135,6 +140,7 @@ namespace Api.Tests.Controllers
                 Name = "Test",
                 City = "City",
                 Country = "Country",
+                Email = "test@test.com"
             };
             _mockRepo.Setup(repo => repo.GetAddressByIdAsync(1)).ReturnsAsync(address);
 
@@ -206,6 +212,7 @@ namespace Api.Tests.Controllers
                 Name = "Test",
                 City = "City",
                 Country = "Country",
+                Email = "test@test.com"
             };
             mockAddressRepository
                 .Setup(repo => repo.AddAddressAsync(address))
@@ -232,6 +239,7 @@ namespace Api.Tests.Controllers
                         Name = "Test Name",
                         City = "Dublin",
                         Country = "Ireland",
+                        Email = "test@test.com"
                     }
                 );
             _mockRepo
@@ -256,6 +264,7 @@ namespace Api.Tests.Controllers
                 Name = "Test Name",
                 City = "Test City",
                 Country = "Test Country",
+                Email = "test@test.com"
             };
             var expectedStrings = new[]
             {
