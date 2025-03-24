@@ -1,4 +1,5 @@
 using Api.DTOs;
+using Api.Libraries.AddressLibrary.Models;
 using Api.Libraries.AddressLibrary.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace Api.Controllers
     public class AddressController(IAddressRepository addressRepository) : ControllerBase
     {
         [HttpGet]
+        [ProducesResponseType<IEnumerable<Address>>(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAddresses()
         {
             try
@@ -24,6 +26,8 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType<Address>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetAddress(int id)
         {
             try
@@ -44,6 +48,7 @@ namespace Api.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType<int>(StatusCodes.Status200OK)]
         public async Task<IActionResult> CreateAddress(RequestAddress address)
         {
             try
@@ -59,6 +64,7 @@ namespace Api.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> UpdateAddress(int id, RequestAddress address)
         {
             await addressRepository.UpdateAddressAsync(id, address);
@@ -66,6 +72,8 @@ namespace Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteAddress(int id)
         {
             try

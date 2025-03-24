@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{0F60107E-DEA6-4807-8DB1-A44EE6013754}"
 	ProjectSection(SolutionItems) = preProject
 		data\Addresses.sql = data\Addresses.sql
+		data\UpgradeScript.sql = data\UpgradeScript.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "DbWorker\Api\Api.csproj", "{39F90253-AEC8-8F79-ADEB-546B898278F3}"
